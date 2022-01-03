@@ -31,4 +31,11 @@ app.listen(port, () => {
 
 change also the public/app.js file fetch call since it is targeting localhost:3000
   fetch('/weather?address=' + encodeURIComponent(location)).then((response) => {
-    
+
+heroku create command configured a remote for us
+- git remote (to see a list of all the remotes)
+
+- git push heroku main
+
+
+-- npx nodemon src/app.js -e js,hbs     
