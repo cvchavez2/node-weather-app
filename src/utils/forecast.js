@@ -10,13 +10,15 @@ const forecast = (lat, lon, callback) => {
       const weatherRequestErrorType = body.error.type
       callback('forecast request error: ' + weatherRequestErrorType, undefined)
     } else {
+      const weatherDescription = body.current.weather_descriptions[0]
       const weather = body.current
       const location = body.location
       const units = body.request.unit
       callback(undefined, {
         weather,
         location,
-        units
+        units,
+        weatherDescription
       })
     }
   })

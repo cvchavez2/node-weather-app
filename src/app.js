@@ -59,15 +59,16 @@ app.get('/weather', (req, res) => {
     if(error){
       return res.send({ error })
     }
-    forecast(latitude, longitude, (error, { weather, units }) => {
+    forecast(latitude, longitude, (error, { weather, units, weatherDescription }) => {
       if(error){
         return res.send({ error })
       }
       return res.send({
         location,
-        weatherMessage: 'current temperature is: ' + weather.temperature + ' ' + units,
+        weatherMessage: 'Current temperature is: ' + weather.temperature + ' ' + units,
         weatherFeelsLikeMessage: 'outside it feels like: ' + weather.feelslike + ' ' + units,
-        address: placeName
+        address: placeName,
+        weatherDescription
       })
     })
   })
