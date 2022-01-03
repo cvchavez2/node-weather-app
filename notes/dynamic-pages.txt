@@ -1,0 +1,12 @@
+Template Engine (share templates across html files)
+
+we will use Handle bars (npm i hbs (we use hbs instead of handlebars since hbs is the express view engine))
+
+allow us to render dynamic docs
+easily create code that we can reuse across pages
+
+
+Nodemon args
+
+if you want nodemon to listen to changes on other files
+nodemon src/app.js -e js,hbs
