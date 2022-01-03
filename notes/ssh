@@ -1,0 +1,30 @@
+create ssh key
+
+command to list all ssh keys if you have one
+- ls -a -l ~/.ssh
+
+to generate a new ssh key
+- ssh-keygen -t rsa -b 4096 -C "cvchavez92@gmail.com"
+
+enter file in which to save the key:
+- accept default
+
+enter a pssphrase
+- accept default
+
+run same ls command to see the id_rsa files
+
+run agent 
+- eval "$(ssh-agent -s)"
+
+to add identity
+- ssh-add -K ~/.ssh/id_rsa
+
+
+to link our github account with our local machina
+- cat ~/.ssj/id_rsa.pub
+
+copy the ssh key and paste it on github -> setting -> ssh and gpg keys -> create new key 
+
+to test the connection use
+- ssh -T git@github.com

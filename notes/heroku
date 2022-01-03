@@ -1,0 +1,34 @@
+install heroku cli tools using homebrew
+
+- heroku -v
+- heroku login
+- heroku keys:add
+if a key is found then add it -y
+
+- heroku create "provide a unique app name"
+two links are displayed, one is for your app and the other 
+is the heroku repository link where you should be pushing your code
+
+we have to tell heroku how to start our app 
+that gets done in the package.json
+
+we add a script {
+  "start": "node src/app.js"
+}
+
+we can use npm run start to run that same script
+
+next change we have to do goes on the app.js file
+we need to change the port number since we have a fixed one
+create a const called port:
+const port = process.env.PORT || 3000
+
+when the app is running in heroku it will know which port to allocate using the process.env.PORT variable
+replace the fixed port below with the new const
+app.listen(port, () => {
+  console.log('server is running on port: ' + port);
+})
+
+change also the public/app.js file fetch call since it is targeting localhost:3000
+  fetch('/weather?address=' + encodeURIComponent(location)).then((response) => {
+    
